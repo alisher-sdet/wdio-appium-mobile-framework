@@ -4,12 +4,18 @@
 import { users } from "../../src/data/users.js";
 import { loginScreen } from "../../src/screens/LoginScreen.js";
 import { productsScreen } from "../../src/screens/ProductsScreen.js";
+import allure from "@wdio/allure-reporter";
 
 const APP_PACKAGE = "com.swaglabsmobileapp";
 
 describe("Sauce Labs Sample App — Login", () => {
+	// before(async () => {
+	// 	await loginScreen.waitForLoginButton();
+	// });
 	before(async () => {
-		await loginScreen.waitForLoginButton();
+		await allure.step("Wait for login screen", async () => {
+			await loginScreen.waitForLoginButton();
+		});
 	});
 
 	afterEach(async () => {
@@ -18,8 +24,17 @@ describe("Sauce Labs Sample App — Login", () => {
 		await loginScreen.waitForLoginButton();
 	});
 
+	// it("should show login button on start screen", async () => {
+	// 	await expect(loginScreen.loginButton).toBeDisplayed();
+	// });
 	it("should show login button on start screen", async () => {
-		await expect(loginScreen.loginButton).toBeDisplayed();
+		allure.feature("Login");
+		allure.story("Start screen");
+		allure.severity("critical");
+
+		await allure.step("Verify Login button is visible", async () => {
+			await expect(loginScreen.loginButton).toBeDisplayed();
+		});
 	});
 
 	it("should show error for locked_out_user", async () => {
