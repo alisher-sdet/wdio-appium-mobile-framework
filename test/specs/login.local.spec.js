@@ -4,7 +4,7 @@
 import { users } from "../../src/data/users.js";
 import { loginScreen } from "../../src/screens/LoginScreen.js";
 import { productsScreen } from "../../src/screens/ProductsScreen.js";
-import allure from "@wdio/allure-reporter";
+import allureReporter from "@wdio/allure-reporter";
 
 const APP_PACKAGE = "com.swaglabsmobileapp";
 
@@ -13,7 +13,7 @@ describe("Sauce Labs Sample App — Login", () => {
 	// 	await loginScreen.waitForLoginButton();
 	// });
 	before(async () => {
-		await allure.step("Wait for login screen", async () => {
+		await allureReporter.step("Wait for login screen", async () => {
 			await loginScreen.waitForLoginButton();
 		});
 	});
@@ -28,11 +28,11 @@ describe("Sauce Labs Sample App — Login", () => {
 	// 	await expect(loginScreen.loginButton).toBeDisplayed();
 	// });
 	it("should show login button on start screen", async () => {
-		allure.feature("Login");
-		allure.story("Start screen");
-		allure.severity("critical");
+		allureReporter.feature("Login");
+		allureReporter.story("Start screen");
+		allureReporter.severity("critical");
 
-		await allure.step("Verify Login button is visible", async () => {
+		await allureReporter.step("Verify Login button is visible", async () => {
 			await expect(loginScreen.loginButton).toBeDisplayed();
 		});
 	});
