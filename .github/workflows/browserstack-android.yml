@@ -37,5 +37,3 @@ jobs:
         with:
           name: allure-results
           path: reports/allure-results
-          # name: reports
-          # path: /allure-results
