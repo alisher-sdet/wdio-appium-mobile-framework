@@ -30,7 +30,6 @@ dist/
 tmp/
 x_*
 *copy*
-.github
 
 # Logs
 log/
