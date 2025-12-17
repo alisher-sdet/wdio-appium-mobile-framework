@@ -13,9 +13,9 @@ describe("Sauce Labs Sample App — Login", () => {
 	// 	await loginScreen.waitForLoginButton();
 	// });
 	before(async () => {
-		await allureReporter.step("Wait for login screen", async () => {
-			await loginScreen.waitForLoginButton();
-		});
+		allureReporter.startStep("Wait for login screen");
+		await loginScreen.waitForLoginButton();
+		allureReporter.endStep("passed");
 	});
 
 	afterEach(async () => {
@@ -28,13 +28,13 @@ describe("Sauce Labs Sample App — Login", () => {
 	// 	await expect(loginScreen.loginButton).toBeDisplayed();
 	// });
 	it("should show login button on start screen", async () => {
-		allureReporter.feature("Login");
-		allureReporter.story("Start screen");
-		allureReporter.severity("critical");
+		allureReporter.addFeature("Login");
+		allureReporter.addStory("Start screen");
+		allureReporter.addSeverity("critical");
 
-		await allureReporter.step("Verify Login button is visible", async () => {
-			await expect(loginScreen.loginButton).toBeDisplayed();
-		});
+		allureReporter.startStep("Verify Login button is visible");
+		await expect(loginScreen.loginButton).toBeDisplayed();
+		allureReporter.endStep("passed");
 	});
 
 	it("should show error for locked_out_user", async () => {
