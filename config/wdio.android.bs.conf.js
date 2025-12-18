@@ -24,7 +24,7 @@ export const config = {
 	 */
 	// specs: [path.join(process.cwd(), "test/specs/**/*.js")],
 	specs: [path.join(process.cwd(), "test/specs/login.local.spec.js")],
-	specs: [path.join(process.cwd(), "test/specs/login_allure.local.spec.js")],
+	// specs: [path.join(process.cwd(), "test/specs/login_allure.local.spec.js")],
 	mochaOpts: {
 		grep: "should show login button on start screen",
 	},

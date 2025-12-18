@@ -10,6 +10,13 @@ This repository contains an automated test framework for **Android mobile UI tes
 
 The project also includes an optional **Selector Monitoring system** that collects selector usage during test runs and generates analytical reports.
 
+## 📎 Documentation Notes
+
+Some reporting and lifecycle behaviors are influenced by the interaction between WebdriverIO, Appium, BrowserStack SDK, and Allure.
+
+Known and accepted limitations are documented here:  
+➡️ **[Known Limitations](docs/known-limitations.md)**
+
 ---
 
 ## 🗂 Project Structure
@@ -47,6 +54,23 @@ UI_MA_WD/
 ```bash
 npm run android
 ```
+
+## ▶️ Execution Modes
+
+The framework supports multiple execution and reporting modes depending on
+environment and analysis needs:
+
+- Local Android Emulator
+- Local Android Emulator with Selector Monitoring
+- BrowserStack App Automate
+- BrowserStack App Automate with Enhanced Allure Layer
+
+Each mode provides a different level of observability and artifacts.
+Detailed commands and report differences are documented in:
+
+- 📄 docs/execution-modes.md
+- 📊 docs/reporting.md
+- ⚠️ docs/known-limitations.md
 
 ### Run with selector monitoring enabled
 
